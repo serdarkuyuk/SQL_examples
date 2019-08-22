@@ -3,3 +3,15 @@ from Tracks tr inner join Albums al on
 tr.AlbumId=al.AlbumId
 where al.Title= 'Californication'
 order by TrackId;
+
+
+select TrackId, Name
+from Tracks tr inner join Albums al on 
+tr.AlbumId=al.AlbumId
+where al.Title= 'Californication'
+order by TrackId;
+
+
+select e1.LastName, e2.ReportsTo
+from Employees e1 inner join Employees e2 on e1.EmployeeId=e2.EmployeeId 
+where e2.ReportsTo < 2 or e2.ReportsTo is Null
