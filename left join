@@ -1,0 +1,21 @@
+select Title, UnitPrice
+from (select ar.Name, al.Title, al.AlbumId
+from artists ar left join albums al on 
+ar.ArtistId=al.ArtistId
+where ar.Name = 'Audioslave') om
+left join tracks on om.AlbumId=tracks.AlbumId;
+
+select FirstName, LastName, i.invoiceId
+from customers c
+left join invoices i on c.CustomerId=i.CustomerId
+where i.invoiceId is NULL;
+
+select am.Name, am.Title, sum(tr.UnitPrice)
+from tracks tr left join 
+(select ar.Name, al.Title, al.AlbumId
+from artists ar left join albums al on 
+ar.ArtistId=al.ArtistId
+where al.Title = 'Big Ones') am on 
+tr.albumId=am.AlbumId
+where am.Title = 'Big Ones'
+order by am.Name;
