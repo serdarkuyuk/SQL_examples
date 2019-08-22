@@ -19,3 +19,22 @@ where al.Title = 'Big Ones') am on
 tr.albumId=am.AlbumId
 where am.Title = 'Big Ones'
 order by am.Name;
+
+select FirstName, LastName, City, Email
+from Customers c left join Invoices i on c.CustomerId=i.CustomerId
+where c.FirstName = 'František';
+
+select Name, a.Title, a.ArtistId, TrackId
+from Albums a left join Tracks t on
+a.AlbumId=t.AlbumId
+where TrackId= 12;
+
+select ar.ArtistId, ar.Name, al.AlbumId
+from Artists ar left join Albums al on
+ar.ArtistId=al.ArtistId
+where al.AlbumId is NULL
+
+select c.City, i.BillingCity
+from Customers c left join Invoices i 
+on c.CustomerId=i.CustomerId
+where c.City = i.BillingCity
