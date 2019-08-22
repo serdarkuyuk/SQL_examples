@@ -1,0 +1,6 @@
+select Firstname, LastName
+from Employees
+union
+select Firstname, LastName
+from Customers
+order by LastName desc
