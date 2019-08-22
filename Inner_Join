@@ -1,0 +1,5 @@
+select TrackId, Name
+from Tracks tr inner join Albums al on 
+tr.AlbumId=al.AlbumId
+where al.Title= 'Californication'
+order by TrackId;
